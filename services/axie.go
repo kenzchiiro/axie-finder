@@ -317,7 +317,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	}
 	titleContents = append(titleContents, &titleIcon)
 
-	titleContents = append(bodyContents, &titleBox)
+	bodyContents = append(bodyContents, &titleBox)
 
 	// Make Body
 	body := linebot.BoxComponent{
