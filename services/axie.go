@@ -335,21 +335,20 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Type: linebot.FlexComponentTypeIcon,
 		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
 	}
-	span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
-	// statText := linebot.TextComponent{
-	// 	Type:     linebot.FlexComponentTypeText,
-	// 	Text:     "HP",
-	// 	Weight:   "bold",
-	// 	Align:    "start",
-	// 	Size:     linebot.FlexTextSizeTypeLg,
-	// 	Margin:   linebot.FlexComponentMarginTypeSm,
-	// 	Contents: span,
-	// }
-
-	// span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
-	statValue := linebot.TextComponent{
+	statText := linebot.TextComponent{
 		Type:     linebot.FlexComponentTypeText,
 		Text:     "HP",
+		Weight:   "bold",
+		Align:    "start",
+		Size:     linebot.FlexTextSizeTypeLg,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
+
+	span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
+	statValue := linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "27",
 		Align:    "end",
 		Color:    "#AAAAAA",
 		Size:     linebot.FlexTextSizeTypeSm,
@@ -357,7 +356,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Contents: span,
 	}
 	statContentsBaseline = append(statContentsBaseline, &statIcon)
-	// statContentsBaseline = append(statContentsBaseline, &statText)
+	statContentsBaseline = append(statContentsBaseline, &statText)
 	statContentsBaseline = append(statContentsBaseline, &statValue)
 
 	bodyBaseline := linebot.BoxComponent{
