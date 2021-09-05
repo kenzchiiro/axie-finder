@@ -315,7 +315,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Layout:   linebot.FlexBoxLayoutTypeBaseline,
 		Contents: titleContents,
 	}
-	fmt.Println("titleBox", titleBox)
+	fmt.Println("titleBox", titleBox.Contents[1])
 	var contentsBoxGroup []linebot.FlexComponent
 	contentsBoxGroup = append(contentsBoxGroup, &titleBox)
 
