@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/jasonlvhit/gocron"
 	"github.com/labstack/echo"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -49,9 +48,9 @@ func Fetch(date string) {
 }
 
 func main() {
-	go gocron.Every(5).Second().Do(Fetch, "test")
+	// go gocron.Every(5).Second().Do(Fetch, "test")
 	go startService()
-	<-gocron.Start()
+	// <-gocron.Start()
 
 }
 
