@@ -47,7 +47,7 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-			data := services.GetAxie()
+			// data := services.GetAxie()
 			// Make Contents
 			var contents []linebot.FlexComponent
 			text := linebot.TextComponent{
