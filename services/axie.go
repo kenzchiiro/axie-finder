@@ -307,7 +307,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	titleContents = append(titleContents, &titleText)
 	titleIcon := linebot.IconComponent{
 		Type: linebot.FlexComponentTypeIcon,
-		URL:  "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
+		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg",
 	}
 	titleContents = append(titleContents, &titleIcon)
 	titleBox := linebot.BoxComponent{
