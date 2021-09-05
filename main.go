@@ -1,7 +1,6 @@
 package main
 
 import (
-	"axie-notify/services"
 	"axie-notify/services/delivery/http"
 	"fmt"
 	"log"
@@ -58,8 +57,7 @@ func connectLineBot() *linebot.Client {
 
 func startService() {
 	e := echo.New()
-	bankCoreInfo := services.NewBankCoreServiceInfo()
-	http.NewServiceHTTPHandler(e, connectLineBot(), bankCoreInfo)
+	http.NewServiceHTTPHandler(e, connectLineBot())
 	e.Logger.Fatal(e.Start(getPort()))
 }
 
