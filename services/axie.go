@@ -305,11 +305,12 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	// 	Contents: span,
 	// }
 	// titleContents = append(titleContents, &titleText)
-	titleIcon := linebot.IconComponent{
-		URL:         "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f",
-		Size:        linebot.FlexIconSizeType5xl,
-		AspectRatio: linebot.FlexIconAspectRatioType1to1,
-	}
+	titleIcon := linebot.IconComponent{}
+	titleIcon.URL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f"
+	// 	URL:         "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f",
+	// 	Size:        linebot.FlexIconSizeType5xl,
+	// 	AspectRatio: linebot.FlexIconAspectRatioType1to1,
+	// }
 	titleContents = append(titleContents, &titleIcon)
 	titleBox := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
