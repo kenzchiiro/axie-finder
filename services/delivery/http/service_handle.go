@@ -4,6 +4,7 @@ import (
 	"axie-notify/models"
 	"axie-notify/services"
 	"context"
+	"fmt"
 
 	"log"
 	"time"
@@ -46,10 +47,12 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
+			data := services.GetAxie()
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				messageFromPing := services.PingService(message.Text, handler.ServicesInfo, time.Second*5)
-				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(messageFromPing)).Do(); err != nil {
+				fmt.Println(messageFromPing)
+				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(string(data))).Do(); err != nil {
 					log.Print(err)
 				}
 			}
