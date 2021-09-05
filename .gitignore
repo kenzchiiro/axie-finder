@@ -1,0 +1,12 @@
+.env*
+*.env
+test*
+test.*
+tmp/*
+/tmp*
+tmpFiles/
+mockFiles/
+ce
+logs/
+config.yml
+.vscode
