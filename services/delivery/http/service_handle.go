@@ -67,7 +67,7 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 					// // New Flex Message
 					// flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
 
-					test := services.AxieFlexMessageTemplate()
+					test := services.NewAxieFlexMessageTemplate()
 					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, test).Do(); err != nil {
 						log.Print(err)
 					}

@@ -283,30 +283,45 @@ func AddQueue(userID, msg string) (err error) {
 	return
 }
 
-func AxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
-	// Make Contents
-	var contents []linebot.FlexComponent
-	text := linebot.TextComponent{
+func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
+	// Make Hero
+	hero := linebot.ImageComponent{
+		Type:        linebot.FlexComponentTypeImage,
+		URL:         "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
+		Size:        "lg",
+		AspectRatio: linebot.FlexImageAspectRatioType20to13,
+		AspectMode:  linebot.FlexImageAspectModeTypeCover,
+		Action:      linebot.NewMessageAction("left", "left clicked"),
+	}
+
+	// Make Title
+	var bodyContents []linebot.FlexComponent
+	var titleContents []linebot.FlexComponent
+
+	titleBox := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Contents: titleContents,
+	}
+	titleText := linebot.TextComponent{
 		Type:   linebot.FlexComponentTypeText,
 		Text:   "AXIE NAME",
 		Weight: "bold",
 		Size:   linebot.FlexTextSizeTypeXl,
 	}
-	contents = append(contents, &text)
-	// Make Hero
-	hero := linebot.ImageComponent{
-		Type:        linebot.FlexComponentTypeImage,
-		URL:         "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-		Size:        "full",
-		AspectRatio: linebot.FlexImageAspectRatioType20to13,
-		AspectMode:  linebot.FlexImageAspectModeTypeCover,
-		Action:      linebot.NewMessageAction("left", "left clicked"),
+	titleContents = append(titleContents, &titleText)
+
+	titleIcon := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f",
 	}
+	titleContents = append(titleContents, &titleIcon)
+
 	// Make Body
 	body := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
 		Layout:   linebot.FlexBoxLayoutTypeVertical,
-		Contents: contents,
+		Contents: bodyContents,
 	}
 
 	// Make Contents Footer
