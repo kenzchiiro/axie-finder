@@ -60,7 +60,7 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			// Make Hero
 			hero := linebot.ImageComponent{
 				Type:        linebot.FlexComponentTypeImage,
-				URL:         "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+				URL:         "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
 				Size:        "full",
 				AspectRatio: linebot.FlexImageAspectRatioType20to13,
 				AspectMode:  linebot.FlexImageAspectModeTypeCover,
