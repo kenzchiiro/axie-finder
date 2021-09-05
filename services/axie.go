@@ -315,7 +315,6 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Layout:   linebot.FlexBoxLayoutTypeBaseline,
 		Contents: titleContents,
 	}
-	fmt.Println("titleBox", titleBox.Contents[1])
 	var contentsBoxGroup []linebot.FlexComponent
 	contentsBoxGroup = append(contentsBoxGroup, &titleBox)
 
@@ -324,11 +323,57 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Layout:   linebot.FlexBoxLayoutTypeVertical,
 		Contents: contentsBoxGroup,
 	}
-	fmt.Println("titleBoxGroup", titleBoxGroup)
 
 	var bodyContents []linebot.FlexComponent
 	bodyContents = append(bodyContents, &titleBoxGroup)
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
+
+	//dd
+	var statContentsBaseline []linebot.FlexComponent
+
+	statIcon := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
+	}
+	statText := linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "HP",
+		Weight:   "bold",
+		Align:    "start",
+		Size:     linebot.FlexTextSizeTypeLg,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
+
+	span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
+	statValue := linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "27",
+		Align:    "start",
+		Size:     linebot.FlexTextSizeTypeLg,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
+	bodyContents = append(bodyContents, &statIcon)
+	bodyContents = append(bodyContents, &statText)
+	bodyContents = append(bodyContents, &statValue)
+
+	bodyBaseline := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeBaseline,
+		Contents: statContentsBaseline,
+	}
+
+	var statContents []linebot.FlexComponent
+	statContents = append(statContents, &bodyBaseline)
+
+	bodyBox := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Spacing:  linebot.FlexComponentSpacingTypeSm,
+		Contents: statContents,
+	}
+	bodyContents = append(bodyContents, &bodyBox)
 
 	// Make Body
 	body := linebot.BoxComponent{
