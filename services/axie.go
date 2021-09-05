@@ -347,17 +347,18 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	}
 
 	// span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
-	// statValue := linebot.TextComponent{
-	// 	Type:     linebot.FlexComponentTypeText,
-	// 	Text:     "27",
-	// 	Align:    "start",
-	// 	Size:     linebot.FlexTextSizeTypeLg,
-	// 	Margin:   linebot.FlexComponentMarginTypeSm,
-	// 	Contents: span,
-	// }
+	statValue := linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "27",
+		Align:    "end",
+		Color:    "#AAAAAA",
+		Size:     linebot.FlexTextSizeTypeSm,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
 	statContentsBaseline = append(statContentsBaseline, &statIcon)
 	statContentsBaseline = append(statContentsBaseline, &statText)
-	// statContentsBaseline = append(statContentsBaseline, &statValue)
+	statContentsBaseline = append(statContentsBaseline, &statValue)
 
 	bodyBaseline := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
