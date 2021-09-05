@@ -7,6 +7,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
+
+	"github.com/line/line-bot-sdk-go/linebot"
 )
 
 func GetAxie() (res []byte) {
@@ -117,4 +120,22 @@ func GetAxie() (res []byte) {
 	res, _ = ioutil.ReadAll(resp.Body)
 	fmt.Println(string(res))
 	return res
+}
+
+func SetAxieToFlexMessage() (flexMessage *linebot.FlexMessage) {
+	// Open our jsonFile
+	jsonFile, err := os.Open("data/message.json")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+	}
+	// defer the closing of our jsonFile so that we can parse it later on
+	defer jsonFile.Close()
+	// Unmarshal JSON
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
+	// New Flex Message
+	flexMessage = linebot.NewFlexMessage("FlexWithJSON", flexContainer)
+
+	return
 }

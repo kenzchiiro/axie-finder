@@ -2,9 +2,6 @@ package http
 
 import (
 	"context"
-	"fmt"
-	"io/ioutil"
-	"os"
 
 	"log"
 
@@ -47,28 +44,21 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			// data := services.GetAxie()
-			// Open our jsonFile
-			jsonFile, err := os.Open("data/message.json")
-			// if we os.Open returns an error then handle it
-			if err != nil {
-				fmt.Println(err)
-			}
-			// defer the closing of our jsonFile so that we can parse it later on
-			defer jsonFile.Close()
-			// Unmarshal JSON
-			byteValue, _ := ioutil.ReadAll(jsonFile)
-			flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
-			// New Flex Message
-			flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
 
 			// New Flex Message
 			// Reply Message
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				fmt.Println(message)
-				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
-					log.Print(err)
+				if message.Text == "track" {
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("track")).Do(); err != nil {
+						log.Print(err)
+					}
+				} else {
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("track")).Do(); err != nil {
+						log.Print(err)
+					}
 				}
+
 			}
 		}
 	}
