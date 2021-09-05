@@ -1,23 +1,19 @@
 package http
 
 import (
-	"axie-notify/models"
-	"axie-notify/services"
 	"context"
 	"fmt"
 	"io/ioutil"
 	"os"
 
 	"log"
-	"time"
 
 	"github.com/labstack/echo"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
 type HTTPCallBackHanlder struct {
-	Bot          *linebot.Client
-	ServicesInfo *models.ServicesInfo
+	Bot *linebot.Client
 }
 
 // NewServiceHTTPHandler provide the inititail set up service path to handle request
@@ -27,9 +23,7 @@ func NewServiceHTTPHandler(e *echo.Echo, linebot *linebot.Client) {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(200, "Service is online")
 	})
-	e.GET("/track", func(c echo.Context) error {
-		return c.String(200, "Service is online")
-	})
+
 	e.POST("/callback", hanlders.Callback)
 
 }
@@ -71,8 +65,7 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			// Reply Message
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				messageFromPing := services.PingService(message.Text, handler.ServicesInfo, time.Second*1)
-				fmt.Println(messageFromPing)
+				fmt.Println(message)
 				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
 					log.Print(err)
 				}
