@@ -296,11 +296,13 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 
 	// Make Title
 	var titleContents []linebot.FlexComponent
+	var span []*linebot.SpanComponent
 	titleText := linebot.TextComponent{
-		Type:   linebot.FlexComponentTypeText,
-		Text:   "AXIE NAME",
-		Weight: "bold",
-		Size:   linebot.FlexTextSizeTypeXl,
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "AXIE NAME",
+		Weight:   "bold",
+		Size:     linebot.FlexTextSizeTypeLg,
+		Contents: span,
 	}
 	titleContents = append(titleContents, &titleText)
 	titleIcon := linebot.IconComponent{
