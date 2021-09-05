@@ -1,7 +1,9 @@
 package http
 
 import (
+	"axie-notify/services"
 	"context"
+	"strings"
 
 	"log"
 
@@ -49,8 +51,26 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			// Reply Message
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if message.Text == "track" {
-					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("track")).Do(); err != nil {
+				msg := strings.Split(message.Text, " ")
+				services.AddQueue(event.Source.UserID, msg[1])
+				if msg[0] == "track" {
+					// New TemplateAction
+					var actions []linebot.TemplateAction
+					// Add Actions
+					actions = append(actions, linebot.NewMessageAction("left", "left clicked"))
+					actions = append(actions, linebot.NewMessageAction("right", "right clicked"))
+					// Image URL For CarouselColumn
+					imgURL := "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1539963100/sloth-SLOTH1018.jpg?itok=n6IuFyx_"
+					// New CarouselColumns
+					var columns []*linebot.CarouselColumn
+					// Add CarouselColumn
+					columns = append(columns, linebot.NewCarouselColumn(imgURL, "Title", "description", actions...))
+					// New CarouselTemplate
+					carousel := linebot.NewCarouselTemplate(columns...)
+					// New TemplateMessage
+					template := linebot.NewTemplateMessage("Carousel", carousel)
+
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, template).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
