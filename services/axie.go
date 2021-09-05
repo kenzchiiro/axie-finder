@@ -283,12 +283,12 @@ func AddQueue(userID, msg string) (err error) {
 	return
 }
 
-func AxieFlexMessage() (flexMessage *linebot.FlexMessage) {
+func AxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	// Make Contents
 	var contents []linebot.FlexComponent
 	text := linebot.TextComponent{
 		Type:   linebot.FlexComponentTypeText,
-		Text:   "Brown Cafe",
+		Text:   "AXIE NAME",
 		Weight: "bold",
 		Size:   linebot.FlexTextSizeTypeXl,
 	}
@@ -308,11 +308,33 @@ func AxieFlexMessage() (flexMessage *linebot.FlexMessage) {
 		Layout:   linebot.FlexBoxLayoutTypeVertical,
 		Contents: contents,
 	}
+
+	// Make Contents Footer
+	var contentsFooter []linebot.FlexComponent
+	// Make Footer
+	button := linebot.ButtonComponent{
+		Type: linebot.FlexComponentTypeButton,
+		Action: &linebot.URIAction{
+			Label: "VIEW",
+			URI:   "https://linecorp.com",
+		},
+		Color: "#40C9ABFF",
+		Style: "primary",
+	}
+	contentsFooter = append(contentsFooter, &button)
+
+	// Make Footer
+	footer := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Contents: contentsFooter,
+	}
 	// Build Container
 	bubble := linebot.BubbleContainer{
-		Type: linebot.FlexContainerTypeBubble,
-		Hero: &hero,
-		Body: &body,
+		Type:   linebot.FlexContainerTypeBubble,
+		Hero:   &hero,
+		Body:   &body,
+		Footer: &footer,
 	}
 
 	bubbleList := []*linebot.BubbleContainer{}

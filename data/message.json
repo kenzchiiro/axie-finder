@@ -1,563 +1,279 @@
 {
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "direction": "ltr",
-      "hero": {
-        "type": "image",
-        "url": "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
-        "align": "center",
-        "gravity": "bottom",
-        "size": "lg",
-        "aspectRatio": "10:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "label": "Action",
-          "uri": "https://linecorp.com"
-        }
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "action": {
-          "type": "uri",
-          "label": "Action",
-          "uri": "https://linecorp.com"
-        },
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "AXIE NAME",
-                    "weight": "bold",
-                    "size": "lg",
-                    "contents": []
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "separator"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
-                    "position": "relative",
-                    "offsetTop": "0px"
-                  },
-                  {
-                    "type": "text",
-                    "text": "HP",
-                    "weight": "bold",
-                    "align": "start",
-                    "gravity": "top",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SPEED",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_morale.png?alt=media&token=56733460-caa6-406f-b380-49f63485958e"
-                  },
-                  {
-                    "type": "text",
-                    "text": "MORALE",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_skill.png?alt=media&token=51bec4cd-00b5-4a8b-bca9-5bff9c17d5e4"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SKILL",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SPEED",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "separator"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "spacer",
-                    "size": "xxl"
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "0.1234",
-                        "weight": "bold",
-                        "margin": "sm",
-                        "contents": []
-                      },
-                      {
-                        "type": "text",
-                        "text": "27",
-                        "size": "sm",
-                        "color": "#AAAAAA",
-                        "align": "end",
-                        "contents": [
-                          {
-                            "type": "span",
-                            "text": "WETH"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "VIEW",
-              "uri": "https://linecorp.com"
-            },
-            "color": "#40C9ABFF",
-            "style": "primary"
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "direction": "ltr",
-      "hero": {
-        "type": "image",
-        "url": "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
-        "align": "center",
-        "gravity": "bottom",
-        "size": "lg",
-        "aspectRatio": "10:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "label": "Action",
-          "uri": "https://linecorp.com"
-        }
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "action": {
-          "type": "uri",
-          "label": "Action",
-          "uri": "https://linecorp.com"
-        },
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "AXIE NAME",
-                    "weight": "bold",
-                    "size": "lg",
-                    "contents": []
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "separator"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
-                    "position": "relative",
-                    "offsetTop": "0px"
-                  },
-                  {
-                    "type": "text",
-                    "text": "HP",
-                    "weight": "bold",
-                    "align": "start",
-                    "gravity": "top",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SPEED",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_morale.png?alt=media&token=56733460-caa6-406f-b380-49f63485958e"
-                  },
-                  {
-                    "type": "text",
-                    "text": "MORALE",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_skill.png?alt=media&token=51bec4cd-00b5-4a8b-bca9-5bff9c17d5e4"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SKILL",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
-                  },
-                  {
-                    "type": "text",
-                    "text": "SPEED",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "contents": []
-                  },
-                  {
-                    "type": "text",
-                    "text": "27",
-                    "size": "sm",
-                    "color": "#AAAAAA",
-                    "align": "end",
-                    "contents": [
-                      {
-                        "type": "span",
-                        "text": "27"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "separator"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "spacer",
-                    "size": "xxl"
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "0.1234",
-                        "weight": "bold",
-                        "margin": "sm",
-                        "contents": []
-                      },
-                      {
-                        "type": "text",
-                        "text": "27",
-                        "size": "sm",
-                        "color": "#AAAAAA",
-                        "align": "end",
-                        "contents": [
-                          {
-                            "type": "span",
-                            "text": "WETH"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "VIEW",
-              "uri": "https://linecorp.com"
-            },
-            "color": "#40C9ABFF",
-            "style": "primary"
-          }
-        ]
-      }
+  "type": "bubble",
+  "direction": "ltr",
+  "hero": {
+    "type": "image",
+    "url": "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
+    "align": "center",
+    "gravity": "bottom",
+    "size": "lg",
+    "aspectRatio": "10:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "label": "Action",
+      "uri": "https://linecorp.com"
     }
-  ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "md",
+    "action": {
+      "type": "uri",
+      "label": "Action",
+      "uri": "https://linecorp.com"
+    },
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "AXIE NAME",
+                "weight": "bold",
+                "size": "lg",
+                "contents": []
+              },
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "separator"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
+                "position": "relative",
+                "offsetTop": "0px"
+              },
+              {
+                "type": "text",
+                "text": "HP",
+                "weight": "bold",
+                "align": "start",
+                "gravity": "top",
+                "margin": "sm",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "27",
+                "size": "sm",
+                "color": "#AAAAAA",
+                "align": "end",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "27"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
+              },
+              {
+                "type": "text",
+                "text": "SPEED",
+                "weight": "bold",
+                "margin": "sm",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "27",
+                "size": "sm",
+                "color": "#AAAAAA",
+                "align": "end",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "27"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_morale.png?alt=media&token=56733460-caa6-406f-b380-49f63485958e"
+              },
+              {
+                "type": "text",
+                "text": "MORALE",
+                "weight": "bold",
+                "margin": "sm",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "27",
+                "size": "sm",
+                "color": "#AAAAAA",
+                "align": "end",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "27"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_skill.png?alt=media&token=51bec4cd-00b5-4a8b-bca9-5bff9c17d5e4"
+              },
+              {
+                "type": "text",
+                "text": "SKILL",
+                "weight": "bold",
+                "margin": "sm",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "27",
+                "size": "sm",
+                "color": "#AAAAAA",
+                "align": "end",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "27"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
+              },
+              {
+                "type": "text",
+                "text": "SPEED",
+                "weight": "bold",
+                "margin": "sm",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "27",
+                "size": "sm",
+                "color": "#AAAAAA",
+                "align": "end",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "27"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "separator"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "spacer",
+                "size": "xxl"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "0.1234",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "contents": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "27",
+                    "size": "sm",
+                    "color": "#AAAAAA",
+                    "align": "end",
+                    "contents": [
+                      {
+                        "type": "span",
+                        "text": "WETH"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "VIEW",
+          "uri": "https://linecorp.com"
+        },
+        "color": "#40C9ABFF",
+        "style": "primary"
+      }
+    ]
+  }
 }
