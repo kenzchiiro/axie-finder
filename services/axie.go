@@ -295,14 +295,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	}
 
 	// Make Title
-	var bodyContents []linebot.FlexComponent
 	var titleContents []linebot.FlexComponent
-
-	titleBox := linebot.BoxComponent{
-		Type:     linebot.FlexComponentTypeBox,
-		Layout:   linebot.FlexBoxLayoutTypeVertical,
-		Contents: titleContents,
-	}
 	titleText := linebot.TextComponent{
 		Type:   linebot.FlexComponentTypeText,
 		Text:   "AXIE NAME",
@@ -310,13 +303,18 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Size:   linebot.FlexTextSizeTypeXl,
 	}
 	titleContents = append(titleContents, &titleText)
-
 	titleIcon := linebot.IconComponent{
 		Type: linebot.FlexComponentTypeIcon,
 		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f",
 	}
 	titleContents = append(titleContents, &titleIcon)
+	titleBox := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Contents: titleContents,
+	}
 
+	var bodyContents []linebot.FlexComponent
 	bodyContents = append(bodyContents, &titleBox)
 
 	// Make Body
