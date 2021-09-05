@@ -297,7 +297,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	// Make Title
 	var titleContents []linebot.FlexComponent
 	titleIcon := linebot.IconComponent{
-		Type: linebot.FlexComponentTypeIcon,
+		Type: linebot.FlexComponentTypeImage,
 		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f",
 	}
 	titleContents = append(titleContents, &titleIcon)
