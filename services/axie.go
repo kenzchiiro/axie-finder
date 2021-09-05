@@ -328,8 +328,8 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 	bodyContents = append(bodyContents, &titleBoxGroup)
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
 
-	//dd
-	var statContentsBaseline []linebot.FlexComponent
+	//HP
+	var statContentsBaselineHP []linebot.FlexComponent
 
 	statIcon := linebot.IconComponent{
 		Type: linebot.FlexComponentTypeIcon,
@@ -340,7 +340,7 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Text:     "HP",
 		Weight:   "bold",
 		Align:    "start",
-		Size:     linebot.FlexTextSizeTypeLg,
+		Size:     linebot.FlexTextSizeTypeSm,
 		Margin:   linebot.FlexComponentMarginTypeSm,
 		Contents: span,
 	}
@@ -355,14 +355,45 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Margin:   linebot.FlexComponentMarginTypeSm,
 		Contents: span,
 	}
-	statContentsBaseline = append(statContentsBaseline, &statIcon)
-	statContentsBaseline = append(statContentsBaseline, &statText)
-	statContentsBaseline = append(statContentsBaseline, &statValue)
+	statContentsBaselineHP = append(statContentsBaselineHP, &statIcon)
+	statContentsBaselineHP = append(statContentsBaselineHP, &statText)
+	statContentsBaselineHP = append(statContentsBaselineHP, &statValue)
+
+	//SPD
+	var statContentsBaselineSPD []linebot.FlexComponent
+
+	statIcon = linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8",
+	}
+	statText = linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "SPEED",
+		Weight:   "bold",
+		Align:    "start",
+		Size:     linebot.FlexTextSizeTypeSm,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
+
+	span = append(span, &linebot.SpanComponent{Type: linebot.FlexComponentTypeSpan, Text: "27"})
+	statValue = linebot.TextComponent{
+		Type:     linebot.FlexComponentTypeText,
+		Text:     "27",
+		Align:    "end",
+		Color:    "#AAAAAA",
+		Size:     linebot.FlexTextSizeTypeSm,
+		Margin:   linebot.FlexComponentMarginTypeSm,
+		Contents: span,
+	}
+	statContentsBaselineSPD = append(statContentsBaselineSPD, &statIcon)
+	statContentsBaselineSPD = append(statContentsBaselineSPD, &statText)
+	statContentsBaselineSPD = append(statContentsBaselineSPD, &statValue)
 
 	bodyBaseline := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
 		Layout:   linebot.FlexBoxLayoutTypeBaseline,
-		Contents: statContentsBaseline,
+		Contents: statContentsBaselineSPD,
 	}
 
 	var statContents []linebot.FlexComponent
