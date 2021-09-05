@@ -3,6 +3,7 @@ package main
 import (
 	"axie-notify/services"
 	"axie-notify/services/delivery/http"
+	"fmt"
 	"log"
 	"os"
 
@@ -59,5 +60,14 @@ func startService() {
 	e := echo.New()
 	bankCoreInfo := services.NewBankCoreServiceInfo()
 	http.NewServiceHTTPHandler(e, connectLineBot(), bankCoreInfo)
-	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
+	e.Logger.Fatal(e.Start(getPort()))
+}
+
+func getPort() string {
+	var port = os.Getenv("PORT") // ----> (A)
+	if port == "" {
+		port = "8080"
+		fmt.Println("No Port In Heroku" + port)
+	}
+	return ":" + port // ----> (B)
 }
