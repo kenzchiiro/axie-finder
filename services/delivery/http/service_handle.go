@@ -351,17 +351,15 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			// }
 
 			// Open our jsonFile
-			jsonFile, err := os.Open("users.json")
+			jsonFile, err := os.Open("data/message.json")
 			// if we os.Open returns an error then handle it
 			if err != nil {
 				fmt.Println(err)
 			}
-			fmt.Println("Successfully Opened users.json")
 			// defer the closing of our jsonFile so that we can parse it later on
 			defer jsonFile.Close()
 			// Unmarshal JSON
 			byteValue, _ := ioutil.ReadAll(jsonFile)
-
 			flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
 			// New Flex Message
 			flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
