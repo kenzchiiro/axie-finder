@@ -29,7 +29,7 @@ var (
 func PingService(messageServiceName string, servicesInfo *models.ServicesInfo, timeOut time.Duration) string {
 	serviceInfo, err := FindServiceName(messageServiceName, servicesInfo)
 	if err != nil {
-		return "Sorry, the name did not match to any services in our system."
+		return "ขอโทษค่ะ ฉันไม่เข้่าใจ"
 	}
 	if len(serviceInfo.ServiceName) > 0 && len(serviceInfo.Port) > 0 {
 		serviceStatus := ping(serviceInfo.ServiceName, serviceInfo.IPAddress, serviceInfo.Port, timeOut)

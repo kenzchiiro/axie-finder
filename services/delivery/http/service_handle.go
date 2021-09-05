@@ -24,7 +24,7 @@ func NewServiceHTTPHandler(e *echo.Echo, linebot *linebot.Client, servicesInfo *
 	e.GET("/", func(c echo.Context) error {
 		return c.String(200, "Service is online")
 	})
-	e.POST("/", hanlders.Callback)
+	e.POST("/callback", hanlders.Callback)
 
 }
 
