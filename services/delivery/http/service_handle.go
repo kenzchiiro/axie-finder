@@ -3,9 +3,6 @@ package http
 import (
 	"axie-notify/services"
 	"context"
-	"fmt"
-	"io/ioutil"
-	"os"
 	"strings"
 
 	"log"
@@ -57,20 +54,21 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 				msg := strings.Split(message.Text, " ")
 				services.AddQueue(event.Source.UserID, msg[1])
 				if msg[0] == "track" {
-					jsonFile, err := os.Open("data/message.json")
-					// if we os.Open returns an error then handle it
-					if err != nil {
-						fmt.Println(err)
-					}
-					// defer the closing of our jsonFile so that we can parse it later on
-					defer jsonFile.Close()
-					// Unmarshal JSON
-					byteValue, _ := ioutil.ReadAll(jsonFile)
-					flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
-					// New Flex Message
-					flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
+					// jsonFile, err := os.Open("data/message.json")
+					// // if we os.Open returns an error then handle it
+					// if err != nil {
+					// 	fmt.Println(err)
+					// }
+					// // defer the closing of our jsonFile so that we can parse it later on
+					// defer jsonFile.Close()
+					// // Unmarshal JSON
+					// byteValue, _ := ioutil.ReadAll(jsonFile)
+					// flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
+					// // New Flex Message
+					// flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
 
-					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
+					test := services.AxieFlexMessage()
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, test).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {

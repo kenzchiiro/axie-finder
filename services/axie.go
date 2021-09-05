@@ -201,11 +201,24 @@ func SetVariablesAxie(variables *models.Variables) (res []byte) {
 	}
 	defer resp.Body.Close()
 	res, _ = ioutil.ReadAll(resp.Body)
-	fmt.Println(string(res))
+
+	axies := models.Data{}
+	json.Unmarshal(res, &axies)
+
+	for _, v := range axies.Axies.Results {
+		fmt.Println(v.Auction)
+		fmt.Println(v.Name)
+		fmt.Println(v.Stats)
+		fmt.Println(v.ID)
+		fmt.Println(v.Genes)
+		fmt.Println(v.Class)
+		fmt.Println(v.Image)
+		fmt.Println(v.Parts)
+	}
 	return res
 }
 
-func SetParameterAxie(params string) (data []byte) {
+func SetParameterAxieFromMessage(params string) (data []byte) {
 	param := strings.Split(params, ";")
 
 	_type := strings.Split(param[0], ",")
@@ -232,9 +245,7 @@ func SetParameterAxie(params string) (data []byte) {
 		Sort:  "PriceAsc",
 		Owner: nil,
 	}
-
 	data = SetVariablesAxie(&variables)
-
 	return
 }
 
@@ -269,5 +280,50 @@ func AddQueue(userID, msg string) (err error) {
 		fmt.Println(err)
 	}
 	_ = ioutil.WriteFile("data/queue.json", file, 0644)
+	return
+}
+
+func AxieFlexMessage() (flexMessage *linebot.FlexMessage) {
+	// Make Contents
+	var contents []linebot.FlexComponent
+	text := linebot.TextComponent{
+		Type:   linebot.FlexComponentTypeText,
+		Text:   "Brown Cafe",
+		Weight: "bold",
+		Size:   linebot.FlexTextSizeTypeXl,
+	}
+	contents = append(contents, &text)
+	// Make Hero
+	hero := linebot.ImageComponent{
+		Type:        linebot.FlexComponentTypeImage,
+		URL:         "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+		Size:        "full",
+		AspectRatio: linebot.FlexImageAspectRatioType20to13,
+		AspectMode:  linebot.FlexImageAspectModeTypeCover,
+		Action:      linebot.NewMessageAction("left", "left clicked"),
+	}
+	// Make Body
+	body := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Contents: contents,
+	}
+	// Build Container
+	bubble := linebot.BubbleContainer{
+		Type: linebot.FlexContainerTypeBubble,
+		Hero: &hero,
+		Body: &body,
+	}
+
+	bubbleList := []*linebot.BubbleContainer{}
+	bubbleList = append(bubbleList, &bubble)
+	bubbleList = append(bubbleList, &bubble)
+	bubbleList = append(bubbleList, &bubble)
+
+	carousal := linebot.CarouselContainer{
+		Type:     linebot.FlexContainerTypeBubble,
+		Contents: bubbleList}
+	// New Flex Message
+	flexMessage = linebot.NewFlexMessage("FlexWithCode", &carousal)
 	return
 }
