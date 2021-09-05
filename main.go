@@ -59,5 +59,5 @@ func startService() {
 	e := echo.New()
 	bankCoreInfo := services.NewBankCoreServiceInfo()
 	http.NewServiceHTTPHandler(e, connectLineBot(), bankCoreInfo)
-	e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
