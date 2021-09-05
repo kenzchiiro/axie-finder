@@ -42,7 +42,7 @@
                 },
                 {
                   "type": "icon",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                  "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/class_beast.svg?alt=media&token=799d6dd8-a8a2-4d9e-8748-a4c0134e0a8f"
                 }
               ]
             }
@@ -62,12 +62,17 @@
               "contents": [
                 {
                   "type": "icon",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                  "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
+                  "margin": "md",
+                  "position": "relative",
+                  "offsetTop": "0px"
                 },
                 {
                   "type": "text",
                   "text": "HP",
                   "weight": "bold",
+                  "align": "start",
+                  "gravity": "top",
                   "margin": "sm",
                   "contents": []
                 },
@@ -92,7 +97,7 @@
               "contents": [
                 {
                   "type": "icon",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                  "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_speed.png?alt=media&token=5c285c92-bab9-4cfa-a43d-bfdb7e1ae0a8"
                 },
                 {
                   "type": "text",
@@ -122,7 +127,7 @@
               "contents": [
                 {
                   "type": "icon",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                  "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_morale.png?alt=media&token=56733460-caa6-406f-b380-49f63485958e"
                 },
                 {
                   "type": "text",
@@ -152,7 +157,7 @@
               "contents": [
                 {
                   "type": "icon",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+                  "url": "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_skill.png?alt=media&token=51bec4cd-00b5-4a8b-bca9-5bff9c17d5e4"
                 },
                 {
                   "type": "text",
