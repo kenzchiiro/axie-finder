@@ -354,9 +354,9 @@ func NewAxieFlexMessageTemplate() (flexMessage *linebot.FlexMessage) {
 		Margin:   linebot.FlexComponentMarginTypeSm,
 		Contents: span,
 	}
-	bodyContents = append(bodyContents, &statIcon)
-	bodyContents = append(bodyContents, &statText)
-	bodyContents = append(bodyContents, &statValue)
+	statContentsBaseline = append(statContentsBaseline, &statIcon)
+	statContentsBaseline = append(statContentsBaseline, &statText)
+	statContentsBaseline = append(statContentsBaseline, &statValue)
 
 	bodyBaseline := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
