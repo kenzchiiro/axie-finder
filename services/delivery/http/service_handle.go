@@ -57,6 +57,11 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 				Size:   linebot.FlexTextSizeTypeXl,
 			}
 			contents = append(contents, &text)
+			contents = append(contents, &text)
+			contents = append(contents, &text)
+			contents = append(contents, &text)
+			contents = append(contents, &text)
+
 			// Make Hero
 			hero := linebot.ImageComponent{
 				Type:        linebot.FlexComponentTypeImage,
