@@ -48,11 +48,45 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			data := services.GetAxie()
+			// Make Contents
+			var contents []linebot.FlexComponent
+			text := linebot.TextComponent{
+				Type:   linebot.FlexComponentTypeText,
+				Text:   "Brown Cafe",
+				Weight: "bold",
+				Size:   linebot.FlexTextSizeTypeXl,
+			}
+			contents = append(contents, &text)
+			// Make Hero
+			hero := linebot.ImageComponent{
+				Type:        linebot.FlexComponentTypeImage,
+				URL:         "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+				Size:        "full",
+				AspectRatio: linebot.FlexImageAspectRatioType20to13,
+				AspectMode:  linebot.FlexImageAspectModeTypeCover,
+				Action:      linebot.NewMessageAction("left", "left clicked"),
+			}
+			// Make Body
+			body := linebot.BoxComponent{
+				Type:     linebot.FlexComponentTypeBox,
+				Layout:   linebot.FlexBoxLayoutTypeVertical,
+				Contents: contents,
+			}
+			// Build Container
+			bubble := linebot.BubbleContainer{
+				Type: linebot.FlexContainerTypeBubble,
+				Hero: &hero,
+				Body: &body,
+			}
+			// New Flex Message
+			flexMessage := linebot.NewFlexMessage("FlexWithCode", &bubble)
+			// Reply Message
 			switch message := event.Message.(type) {
+
 			case *linebot.TextMessage:
-				messageFromPing := services.PingService(message.Text, handler.ServicesInfo, time.Second*5)
+				messageFromPing := services.PingService(message.Text, handler.ServicesInfo, time.Second*1)
 				fmt.Println(messageFromPing)
-				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(string(data))).Do(); err != nil {
+				if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
 					log.Print(err)
 				}
 			}
