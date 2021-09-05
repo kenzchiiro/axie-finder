@@ -21,11 +21,11 @@ type HTTPCallBackHanlder struct {
 func NewServiceHTTPHandler(e *echo.Echo, linebot *linebot.Client, servicesInfo *models.ServicesInfo) {
 
 	hanlders := &HTTPCallBackHanlder{Bot: linebot, ServicesInfo: servicesInfo}
-	e.GET("/ping", func(c echo.Context) error {
-
-		return c.String(200, "Line boi Service : We are good thank you for asking us.")
+	e.GET("/", func(c echo.Context) error {
+		return c.String(200, "Service is online")
 	})
-	e.POST("/callback", hanlders.Callback)
+	e.POST("/", hanlders.Callback)
+
 }
 
 // Callback provides the function to handle request from line
