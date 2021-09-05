@@ -252,6 +252,7 @@ func SetAxieToFlexMessage() (flexMessage *linebot.FlexMessage) {
 	flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
 	// New Flex Message
 	flexMessage = linebot.NewFlexMessage("FlexWithJSON", flexContainer)
+
 	return
 }
 
@@ -264,6 +265,9 @@ func AddQueue(userID, msg string) (err error) {
 
 	_queueList = append(_queueList, _queue)
 	file, err := json.MarshalIndent(_queueList, "", " ")
+	if err != nil {
+		fmt.Println(err)
+	}
 	_ = ioutil.WriteFile("data/queue.json", file, 0644)
 	return
 }

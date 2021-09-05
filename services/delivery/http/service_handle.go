@@ -3,6 +3,9 @@ package http
 import (
 	"axie-notify/services"
 	"context"
+	"fmt"
+	"io/ioutil"
+	"os"
 	"strings"
 
 	"log"
@@ -54,23 +57,20 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 				msg := strings.Split(message.Text, " ")
 				services.AddQueue(event.Source.UserID, msg[1])
 				if msg[0] == "track" {
-					// New TemplateAction
-					var actions []linebot.TemplateAction
-					// Add Actions
-					actions = append(actions, linebot.NewMessageAction("left", "left clicked"))
-					actions = append(actions, linebot.NewMessageAction("right", "right clicked"))
-					// Image URL For CarouselColumn
-					imgURL := "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1539963100/sloth-SLOTH1018.jpg?itok=n6IuFyx_"
-					// New CarouselColumns
-					var columns []*linebot.CarouselColumn
-					// Add CarouselColumn
-					columns = append(columns, linebot.NewCarouselColumn(imgURL, "Title", "description", actions...))
-					// New CarouselTemplate
-					carousel := linebot.NewCarouselTemplate(columns...)
-					// New TemplateMessage
-					template := linebot.NewTemplateMessage("Carousel", carousel)
+					jsonFile, err := os.Open("data/message.json")
+					// if we os.Open returns an error then handle it
+					if err != nil {
+						fmt.Println(err)
+					}
+					// defer the closing of our jsonFile so that we can parse it later on
+					defer jsonFile.Close()
+					// Unmarshal JSON
+					byteValue, _ := ioutil.ReadAll(jsonFile)
+					flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
+					// New Flex Message
+					flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
 
-					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, template).Do(); err != nil {
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
