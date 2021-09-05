@@ -3,9 +3,11 @@
     "direction": "ltr",
     "hero": {
       "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-      "size": "full",
-      "aspectRatio": "20:13",
+      "url": "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png",
+      "align": "center",
+      "gravity": "bottom",
+      "size": "lg",
+      "aspectRatio": "10:13",
       "aspectMode": "cover",
       "action": {
         "type": "uri",
@@ -193,14 +195,30 @@
                   "size": "xxl"
                 },
                 {
-                  "type": "text",
-                  "text": "WETH : 0.1245",
-                  "weight": "bold",
-                  "flex": 1,
-                  "align": "center",
-                  "gravity": "center",
-                  "position": "relative",
-                  "contents": []
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "0.1234",
+                      "weight": "bold",
+                      "margin": "sm",
+                      "contents": []
+                    },
+                    {
+                      "type": "text",
+                      "text": "27",
+                      "size": "sm",
+                      "color": "#AAAAAA",
+                      "align": "end",
+                      "contents": [
+                        {
+                          "type": "span",
+                          "text": "WETH"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -212,9 +230,6 @@
       "type": "box",
       "layout": "vertical",
       "contents": [
-        {
-          "type": "spacer"
-        },
         {
           "type": "button",
           "action": {
