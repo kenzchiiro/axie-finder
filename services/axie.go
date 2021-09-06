@@ -492,7 +492,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	statContentsBaselineMR = append(statContentsBaselineMR, &statIconMR)
 	statContentsBaselineMR = append(statContentsBaselineMR, &statTextMR)
 	statContentsBaselineMR = append(statContentsBaselineMR, &statValueMR)
-	statContentsBaselineMR = append(statContentsBaselineMR, &linebot.SpacerComponent{})
 
 	bodyBaselineMR := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
@@ -500,6 +499,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Contents: statContentsBaselineMR,
 	}
 	statContents = append(statContents, &bodyBaselineMR)
+	statContents = append(statContents, &linebot.SpacerComponent{})
 
 	//----------------------- end mr ----------------------
 
