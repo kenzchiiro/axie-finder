@@ -3,6 +3,7 @@
 test*
 test.*
 tmp/*
+data/*
 /tmp*
 tmpFiles/
 mockFiles/
