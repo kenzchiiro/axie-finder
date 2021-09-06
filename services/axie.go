@@ -279,7 +279,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Size:        "lg",
 		AspectRatio: linebot.FlexImageAspectRatioType20to13,
 		AspectMode:  linebot.FlexImageAspectModeTypeCover,
-		Action:      linebot.NewMessageAction("left", "left clicked"),
+		// Action:      linebot.NewMessageAction("left", "left clicked"),
 	}
 
 	// Make Title
@@ -334,7 +334,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	var titleContentsID []linebot.FlexComponent
 	titleTextID := linebot.TextComponent{
 		Type:   linebot.FlexComponentTypeText,
-		Text:   axieData.ID,
+		Text:   "#" + axieData.ID,
 		Weight: "bold",
 		Color:  "#AAAAAA",
 		Size:   linebot.FlexTextSizeTypeXxs,
