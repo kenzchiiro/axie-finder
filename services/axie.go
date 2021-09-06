@@ -357,6 +357,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	var bodyContents []linebot.FlexComponent
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
+	bodyContents = append(bodyContents, &linebot.SpacerComponent{})
 
 	//HP
 	var statContents []linebot.FlexComponent
@@ -511,6 +512,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	bodyContents = append(bodyContents, &bodyBox)
 
 	//----------------------- end stat ----------------------
+	bodyContents = append(bodyContents, &linebot.SpacerComponent{})
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
 
 	// Make Price
