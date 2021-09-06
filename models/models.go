@@ -98,3 +98,7 @@ type Axies struct {
 type Data struct {
 	Axies Axies `json:"axies"`
 }
+
+type DataRespone struct {
+	Data Data `json:"data"`
+}

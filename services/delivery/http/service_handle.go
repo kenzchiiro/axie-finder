@@ -53,26 +53,16 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			case *linebot.TextMessage:
 				msg := strings.Split(message.Text, " ")
 				services.AddQueue(event.Source.UserID, msg[1])
-				if msg[0] == "track" {
-					// jsonFile, err := os.Open("data/message.json")
-					// // if we os.Open returns an error then handle it
-					// if err != nil {
-					// 	fmt.Println(err)
-					// }
-					// // defer the closing of our jsonFile so that we can parse it later on
-					// defer jsonFile.Close()
-					// // Unmarshal JSON
-					// byteValue, _ := ioutil.ReadAll(jsonFile)
-					// flexContainer, err := linebot.UnmarshalFlexMessageJSON(byteValue)
-					// // New Flex Message
-					// flexMessage := linebot.NewFlexMessage("FlexWithJSON", flexContainer)
+				if msg[0] == "#find" {
+					err := services.AddQueue(event.Source.UserID, msg[1])
+					axiesData := services.SetParameterAxieFromMessage(msg[1])
+					flexMessage := services.SetAxieToFlexMessage(axiesData)
 
-					test := services.NewAxieFlexMessageTemplate()
-					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, test).Do(); err != nil {
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, flexMessage).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
-					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("track")).Do(); err != nil {
+					if _, err = handler.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("command invalid")).Do(); err != nil {
 						log.Print(err)
 					}
 				}
