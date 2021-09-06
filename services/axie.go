@@ -348,7 +348,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	}
 
 	contentsBoxGroup = append(contentsBoxGroup, &titleBoxID)
-
 	titleBoxGroup := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
 		Layout:   linebot.FlexBoxLayoutTypeVertical,
@@ -357,7 +356,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	var bodyContents []linebot.FlexComponent
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
-	bodyContents = append(bodyContents, &linebot.SpacerComponent{})
 
 	//HP
 	var statContents []linebot.FlexComponent
@@ -394,6 +392,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Contents: statContentsBaselineHP,
 	}
 
+	statContents = append(statContents, &linebot.SeparatorComponent{})
 	statContents = append(statContents, &bodyBaselineHP)
 	//----------------------- end hp ----------------------
 
