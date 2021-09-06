@@ -15,36 +15,6 @@ import (
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
-// func main() {
-
-// 	accessToken := "vJ5VjJJ6IM15AxZqFPMHelDJ9AwGrYvxJTie98xSWKJ"
-// 	message := "Found Axie#15326 on sale\nprice 0.12"
-// 	imageURL := "https://storage.googleapis.com/assets.axieinfinity.com/axies/15326/axie/axie-full-transparent.png"
-// 	if err := notify.SendImage(accessToken, message, imageURL); err != nil {
-// 		panic(err)
-// 	}
-// 	// accessToken := "vJ5VjJJ6IM15AxZqFPMHelDJ9AwGrYvxJTie98xSWKJ"
-// 	// message := "hello, world!"
-// 	// imageURL := "image url. ex) https://..."
-
-// 	// if err := notify.SendImage(accessToken, message); err != nil {
-// 	// 	panic(err)
-// 	// }
-
-// 	app := fiber.New()
-
-// 	app.Get("/posts", func(c *fiber.Ctx) error {
-// 		var result []Post
-// 		for _, post := range posts {
-// 			result = append(result, post)
-// 		}
-// 		return c.JSON(result)
-// 	})
-
-// 	app.Listen(":3000")
-
-// }
-
 func Fetch(bot *linebot.Client) {
 	queueFile, err := os.Open("data/queue.json")
 	// if we os.Open returns an error then handle it
@@ -73,10 +43,9 @@ func Fetch(bot *linebot.Client) {
 
 func main() {
 	bot := connectLineBot()
-	go gocron.Every(10).Seconds().Do(Fetch, bot)
+	go gocron.Every(1).Hour().Do(Fetch, bot)
 	go startService()
 	<-gocron.Start()
-	// startService()
 
 }
 

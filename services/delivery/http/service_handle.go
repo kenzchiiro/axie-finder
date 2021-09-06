@@ -48,8 +48,8 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				msg := strings.Split(message.Text, " ")
-				err := services.AddQueue(event.Source.UserID, message.Text)
-				if msg[0] == "#find" {
+				if msg[0] == "#find" && len(msg) > 1 {
+					err := services.AddQueue(event.Source.UserID, message.Text)
 					axiesData := services.SetParameterAxieFromMessage(msg[1])
 					flexMessage := services.SetAxieToFlexMessage(axiesData)
 
