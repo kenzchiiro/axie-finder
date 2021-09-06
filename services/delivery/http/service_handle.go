@@ -45,10 +45,6 @@ func (handler *HTTPCallBackHanlder) Callback(c echo.Context) error {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-			// data := services.GetAxie()
-
-			// New Flex Message
-			// Reply Message
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				msg := strings.Split(message.Text, " ")
