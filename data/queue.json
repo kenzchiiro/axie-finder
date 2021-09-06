@@ -1,6 +1,10 @@
-[
- {
-  "name": "U82c11745442dd93d07bb30b2c9ad9275",
-  "command": "Plant;mouth-serious;6"
+{
+ "U82c11745442dd93d07bb30b2c9ad9275": {
+  "command": "#find",
+  "parameter": "aquatic,reptile;horn-scaly-spoon,tail-gravel-ant;12"
+ },
+ "Uc71dc5a50a707603fc1fbcc864617e04": {
+  "command": "#find",
+  "parameter": "aquatic;horn-scaly-spoon,tail-gravel-ant;12"
  }
-]
+}

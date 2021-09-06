@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 
@@ -224,6 +225,9 @@ func SetParameterAxieFromMessage(params string) (result *models.DataRespone) {
 	param := strings.Split(params, ";")
 
 	_type := strings.Split(param[0], ",")
+	for i, v := range _type {
+		_type[i] = strings.Title(strings.ToLower(v))
+	}
 	_part := strings.Split(param[1], ",")
 	_limit, _ := strconv.Atoi(param[2])
 
@@ -256,14 +260,28 @@ func SetParameterAxieFromMessage(params string) (result *models.DataRespone) {
 }
 
 func AddQueue(userID, msg string) (err error) {
-	_queueList := make([]models.Queue, 0)
+	queueFile, err := os.Open("data/queue.json")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+	}
+	// defer the closing of our jsonFile so that we can parse it later on
+	defer queueFile.Close()
+	// Unmarshal JSON
+	byteValue, _ := ioutil.ReadAll(queueFile)
+	queueList := map[string]models.Queue{}
+
+	err = json.Unmarshal(byteValue, &queueList)
+
+	cmd := strings.Split(msg, " ")
 	_queue := models.Queue{
-		Name:    userID,
-		Command: msg,
+		Command:   cmd[0],
+		Parameter: cmd[1],
 	}
 
-	_queueList = append(_queueList, _queue)
-	file, err := json.MarshalIndent(_queueList, "", " ")
+	queueList[userID] = _queue
+
+	file, err := json.MarshalIndent(queueList, "", " ")
 	if err != nil {
 		fmt.Println(err)
 	}

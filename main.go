@@ -1,11 +1,16 @@
 package main
 
 import (
+	"axie-notify/models"
+	"axie-notify/services"
 	"axie-notify/services/delivery/http"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 
+	"github.com/jasonlvhit/gocron"
 	"github.com/labstack/echo"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -40,18 +45,38 @@ import (
 
 // }
 
-func Fetch(date string) {
+func Fetch(bot *linebot.Client) {
+	queueFile, err := os.Open("data/queue.json")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+	}
+	// defer the closing of our jsonFile so that we can parse it later on
+	defer queueFile.Close()
+	// Unmarshal JSON
+	byteValue, _ := ioutil.ReadAll(queueFile)
+	queueList := map[string]models.Queue{}
 
-	fmt.Printf(date)
+	err = json.Unmarshal(byteValue, &queueList)
 
+	for userID, v := range queueList {
+		if v.Command == "#find" {
+			axiesData := services.SetParameterAxieFromMessage(v.Parameter)
+			flexMessage := services.SetAxieToFlexMessage(axiesData)
+			if _, err := bot.PushMessage(userID, flexMessage).Do(); err != nil {
+				fmt.Println(err)
+			}
+		}
+	}
 	return
 }
 
 func main() {
-	// go gocron.Every(5).Minute().Do(Fetch, "ping")
-	// go startService()
-	// <-gocron.Start()
-	startService()
+	bot := connectLineBot()
+	go gocron.Every(10).Seconds().Do(Fetch, bot)
+	go startService()
+	<-gocron.Start()
+	// startService()
 
 }
 

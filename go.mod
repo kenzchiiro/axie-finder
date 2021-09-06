@@ -3,6 +3,7 @@ module axie-notify
 go 1.16
 
 require (
+	github.com/jasonlvhit/gocron v0.0.1
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.3.0 // indirect
 	github.com/line/line-bot-sdk-go v7.8.0+incompatible
