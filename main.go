@@ -43,7 +43,7 @@ func Fetch(bot *linebot.Client) {
 
 func main() {
 	bot := connectLineBot()
-	go gocron.Every(1).Hour().Do(Fetch, bot)
+	go gocron.Every(5).Seconds().Do(Fetch, bot)
 	go startService()
 	<-gocron.Start()
 
