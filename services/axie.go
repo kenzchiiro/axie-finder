@@ -374,19 +374,39 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	//Part
 	var partContentsBaseline []linebot.FlexComponent
+
+	partEyes := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[0]),
+	}
+	partEars := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[1]),
+	}
+	partBack := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[2]),
+	}
 	partMouth := linebot.IconComponent{
-		AspectRatio: linebot.FlexIconAspectRatioType2to1,
-		Type:        linebot.FlexComponentTypeIcon,
-		URL:         "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[3]),
+	}
+	partHorn := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[4]),
+	}
+	partTail := linebot.IconComponent{
+		Type: linebot.FlexComponentTypeIcon,
+		URL:  FindPartAxieIcon(&axieData.Parts[5]),
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
+	partContentsBaseline = append(partContentsBaseline, &partEyes)
+	partContentsBaseline = append(partContentsBaseline, &partEars)
+	partContentsBaseline = append(partContentsBaseline, &partBack)
 	partContentsBaseline = append(partContentsBaseline, &partMouth)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
+	partContentsBaseline = append(partContentsBaseline, &partHorn)
+	partContentsBaseline = append(partContentsBaseline, &partTail)
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
 
 	partGroup := linebot.BoxComponent{
@@ -673,6 +693,95 @@ func SetAxieToFlexMessage(axiesData *models.DataRespone) (flexMessage *linebot.F
 		Contents: bubbleList}
 	// New Flex Message
 	flexMessage = linebot.NewFlexMessage("FlexWithCode", &carousal)
+	return
+}
+
+func FindPartAxieIcon(part *models.Parts) (iconURL string) {
+	if part.Class == "Plant" {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_plant.png?alt=media&token=4f387978-2d39-46cb-82d7-f7136868b9d2"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_plant.png?alt=media&token=56a4830a-0bc2-47e0-a7cb-b654e6743c98"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_plant.png?alt=media&token=bdfaf303-6155-479f-820b-4d1e6ef161b8"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_plant.png?alt=media&token=58e9813a-e84e-4fa6-b84f-e47156cae04b"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_plant.png?alt=media&token=56c3a8aa-06c9-4f93-bac8-98ff4d26dec7"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_plant.png?alt=media&token=20ffae72-b0f2-421f-b8f7-bee0d72097fc"
+		}
+	} else if part.Class == "Aquatic" {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_aquatic.png?alt=media&token=5229f995-95cc-45e8-b68f-b151db60839a"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_aquatic.png?alt=media&token=28123caa-7cfc-4cc8-a8af-cf375f0889b1"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_aquatic.png?alt=media&token=24dd2b63-5dc0-4f94-83e5-5c202ebf08d6"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_aquatic.png?alt=media&token=67e0cc9d-33da-46da-9712-864f3b22f1b7"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_aquatic.png?alt=media&token=51a4f3c3-5f89-453f-819b-6723e4932c32"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_aquatic.png?alt=media&token=07192a3b-4741-41c9-877d-2cc7f7dfe633"
+		}
+	} else if part.Class == "Beast" {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_beast.png?alt=media&token=f212d08b-1740-4c4d-a55e-48f4e4d21127"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_beast.png?alt=media&token=34f1171f-2617-4f1d-85f6-bfd873da688b"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_beast.png?alt=media&token=cbe1f930-82da-4d9d-ab56-6035a6812cd5"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_beast.png?alt=media&token=9b3f861b-db05-441e-a0f9-377eb2538f7a"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_beast.png?alt=media&token=8f5ff055-926f-49fe-827e-9ed518eb9679"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_beast.png?alt=media&token=2340c100-c937-4121-84a0-f6d9d5f88864"
+		}
+	} else if part.Class == "Bird" {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_bird.png?alt=media&token=6c341688-7d2a-491f-a8e2-0393b5da610c"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_bird.png?alt=media&token=a8572ee0-f98a-4fa4-9a3c-9f81f22bbe94"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_bird.png?alt=media&token=1c5adee4-8ff9-428f-aeab-72dfca6e0cee"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_bird.png?alt=media&token=38d8620c-cd2f-4725-8c33-a6fa1fcc4b2c"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_bird.png?alt=media&token=0f41cd7e-9d66-41ff-8802-e556042ec5d0"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_bird.png?alt=media&token=230038ed-e6b1-43b0-9501-20b62b9d1fe3"
+		}
+	} else if part.Class == "Bug" {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_bug.png?alt=media&token=44a749ca-ea36-434d-9505-b0d272471422"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_bug.png?alt=media&token=545bd980-5ec3-452e-819e-1a65d827202a"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_bug.png?alt=media&token=b7ddb5ae-c0dc-4c4e-8fa4-489ffac4b1c3"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_bug.png?alt=media&token=a9893f8c-c71c-4bff-9de2-2c56e9548da1"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_bug.png?alt=media&token=4d7262c5-8aa8-40ec-a802-c132609d15f6"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_bug.png?alt=media&token=5f032df5-70df-468a-b8ba-eed709143e5f"
+		}
+	} else {
+		if part.Type == "Mouth" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_mouth_reptile.png?alt=media&token=4fc0c8bd-b6be-4604-8932-9eeaa5af8045"
+		} else if part.Type == "Back" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_back_reptile.png?alt=media&token=2a9922d9-d29d-435f-b196-f1610026c2eb"
+		} else if part.Type == "Eyes" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_eyes_reptile.png?alt=media&token=008eb036-390c-4ed3-8b46-e5882f2ef83c"
+		} else if part.Type == "Ears" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_ears_reptile.png?alt=media&token=16d878bd-dd45-48e1-8853-fcad2427d8dc"
+		} else if part.Type == "Horn" {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_horn_reptile.png?alt=media&token=ef636ede-af20-4fbe-a47d-53d7a7a74e5a"
+		} else {
+			iconURL = "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/part_tail_reptile.png?alt=media&token=dc1f5d89-1e89-4201-a832-d2c4a3ce2067"
+		}
+	}
 	return
 }
 
