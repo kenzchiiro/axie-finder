@@ -384,9 +384,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	partContents = append(partContents, &partMouth)
 	partContents = append(partContents, &partMouth)
 	partContents = append(partContents, &partMouth)
-	partContents = append(partContents, &partMouth)
-	partContents = append(partContents, &partMouth)
-	partContents = append(partContents, &partMouth)
 
 	partGroup := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
