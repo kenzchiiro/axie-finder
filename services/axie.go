@@ -378,37 +378,37 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	partEyes := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
 	}
 	partEars := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[1]),
 	}
 	partBack := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[2]),
 	}
 	partMouth := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[3]),
 	}
 	partHorn := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[4]),
 	}
 	partTail := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeSm,
+		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
 	}
@@ -663,7 +663,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Type:   linebot.FlexComponentTypeText,
 		Text:   "$ " + axieData.Auction.CurrentPriceUSD,
 		Align:  "start",
-		Weight: "bold",
+		Color:  "#AAAAAA",
 		Size:   linebot.FlexTextSizeTypeXs,
 		Margin: linebot.FlexComponentMarginTypeSm,
 	}
