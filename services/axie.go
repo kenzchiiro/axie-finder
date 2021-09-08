@@ -290,6 +290,7 @@ func AddQueue(userID, msg string) (err error) {
 }
 
 func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContainer) {
+	decimal.DivisionPrecision = 4
 	// Make Hero
 	hero := linebot.ImageComponent{
 		Type:        linebot.FlexComponentTypeImage,
@@ -591,7 +592,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	//----------------------- end stat ----------------------
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
 
-	// Make Price
+	// Make Price ETH
 
 	var priceContents []linebot.FlexComponent
 	var priceContentsBaseline []linebot.FlexComponent
@@ -642,7 +643,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	priceContents = append(priceContents, &linebot.SpacerComponent{})
 	priceContents = append(priceContents, &priceBaseline)
 
-	//----------------------- end price ----------------------
 	bodyBoxPrice := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
 		Layout:   linebot.FlexBoxLayoutTypeVertical,
@@ -651,6 +651,52 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	}
 
 	bodyContents = append(bodyContents, &bodyBoxPrice)
+
+	//----------------------- end price ----------------------
+
+	// Make Price USD
+
+	var priceContentsUSD []linebot.FlexComponent
+	var priceContentsBaselineUSD []linebot.FlexComponent
+
+	priceValueUSD := linebot.TextComponent{
+		Type:   linebot.FlexComponentTypeText,
+		Text:   "$" + axieData.Auction.CurrentPriceUSD,
+		Align:  "start",
+		Weight: "bold",
+		Size:   linebot.FlexTextSizeTypeXs,
+		Margin: linebot.FlexComponentMarginTypeSm,
+	}
+
+	priceTextUSD := linebot.TextComponent{
+		Type:   linebot.FlexComponentTypeText,
+		Text:   "USD",
+		Align:  "end",
+		Color:  "#AAAAAA",
+		Size:   linebot.FlexTextSizeTypeXs,
+		Margin: linebot.FlexComponentMarginTypeSm,
+	}
+	priceContentsBaselineUSD = append(priceContentsBaselineUSD, &priceValueUSD)
+	priceContentsBaselineUSD = append(priceContentsBaselineUSD, &priceTextUSD)
+
+	priceBaselineUSD := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeBaseline,
+		Contents: priceContentsBaselineUSD,
+	}
+
+	priceContentsUSD = append(priceContentsUSD, &linebot.SpacerComponent{})
+	priceContentsUSD = append(priceContentsUSD, &priceBaselineUSD)
+
+	bodyBoxPriceUSD := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
+		Spacing:  linebot.FlexComponentSpacingTypeSm,
+		Contents: priceContentsUSD,
+	}
+
+	bodyContents = append(bodyContents, &bodyBoxPriceUSD)
+
 	// Make Body
 	body := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
