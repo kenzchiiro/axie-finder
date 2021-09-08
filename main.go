@@ -35,6 +35,7 @@ func Fetch(bot *linebot.Client) {
 			flexMessage := services.SetAxieToFlexMessage(axiesData)
 			if _, err := bot.PushMessage(userID, flexMessage).Do(); err != nil {
 				fmt.Println(err)
+				return
 			}
 		}
 	}
