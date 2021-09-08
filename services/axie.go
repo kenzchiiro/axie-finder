@@ -375,8 +375,9 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	//Part
 	var partContentsBaseline []linebot.FlexComponent
 	partMouth := linebot.IconComponent{
-		Type: linebot.FlexComponentTypeIcon,
-		URL:  "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
+		AspectRatio: linebot.FlexIconAspectRatioType2to1,
+		Type:        linebot.FlexComponentTypeIcon,
+		URL:         "https://firebasestorage.googleapis.com/v0/b/filestore-1d8e6.appspot.com/o/stat_health.png?alt=media&token=c928f31f-54c5-4828-a414-de680b6a0e25",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
