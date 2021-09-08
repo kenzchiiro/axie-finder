@@ -378,37 +378,37 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	partEyes := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
 	}
 	partEars := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[1]),
 	}
 	partBack := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[2]),
 	}
 	partMouth := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[3]),
 	}
 	partHorn := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[4]),
 	}
 	partTail := linebot.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeXs,
+		Size:        linebot.FlexIconSizeTypeSm,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
 	}
@@ -661,7 +661,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	priceValueUSD := linebot.TextComponent{
 		Type:   linebot.FlexComponentTypeText,
-		Text:   "$" + axieData.Auction.CurrentPriceUSD,
+		Text:   "$ " + axieData.Auction.CurrentPriceUSD,
 		Align:  "start",
 		Weight: "bold",
 		Size:   linebot.FlexTextSizeTypeXs,
