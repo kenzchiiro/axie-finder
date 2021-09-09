@@ -109,8 +109,11 @@ type DataRespone struct {
 	Data Data `json:"data"`
 }
 
+// FlexComponent implements FlexComponent interface
+func (*IconComponent) FlexComponent() {}
+
 // IconComponent type
-type IconComponentCustom struct {
+type IconComponent struct {
 	Type        linebot.FlexComponentType
 	URL         string
 	Margin      linebot.FlexComponentMarginType
@@ -121,7 +124,7 @@ type IconComponentCustom struct {
 }
 
 // MarshalJSON method of IconComponent
-func (c *IconComponentCustom) MarshalJSON() ([]byte, error) {
+func (c *IconComponent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type        linebot.FlexComponentType       `json:"type"`
 		URL         string                          `json:"url"`
