@@ -453,7 +453,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	//HP
 	var statContents []linebot.FlexComponent
-	statContents = append(statContents, &linebot.SpacerComponent{})
 	var statContentsBaselineHP []linebot.FlexComponent
 
 	statIconHP := linebot.IconComponent{
