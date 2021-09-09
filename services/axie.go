@@ -673,16 +673,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Margin: linebot.FlexComponentMarginTypeSm,
 	}
 
-	priceTextUSD := linebot.TextComponent{
-		Type:   linebot.FlexComponentTypeText,
-		Text:   "USD",
-		Align:  "end",
-		Color:  "#AAAAAA",
-		Size:   linebot.FlexTextSizeTypeXxs,
-		Margin: linebot.FlexComponentMarginTypeSm,
-	}
 	priceContentsBaselineUSD = append(priceContentsBaselineUSD, &priceValueUSD)
-	priceContentsBaselineUSD = append(priceContentsBaselineUSD, &priceTextUSD)
 
 	priceBaselineUSD := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
