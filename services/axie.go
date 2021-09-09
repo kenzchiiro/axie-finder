@@ -729,13 +729,12 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	}
 	// Build Container
 	_bubble := linebot.BubbleContainer{
-		Header:    &titleBoxGroup,
-		Type:      linebot.FlexContainerTypeBubble,
-		Direction: linebot.FlexBubbleDirectionTypeLTR,
-		Size:      linebot.FlexBubbleSizeTypeMicro,
-		Hero:      &hero,
-		Body:      &body,
-		Footer:    &footer,
+		Header: &titleBoxGroup,
+		Type:   linebot.FlexContainerTypeBubble,
+		Size:   linebot.FlexBubbleSizeTypeMicro,
+		Hero:   &hero,
+		Body:   &body,
+		Footer: &footer,
 	}
 
 	bubble = &_bubble
