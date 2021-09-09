@@ -1,5 +1,11 @@
 package models
 
+import (
+	"encoding/json"
+
+	"github.com/line/line-bot-sdk-go/linebot"
+)
+
 type ServiceInfo struct {
 	IPAddress   string
 	Port        string
@@ -101,4 +107,36 @@ type Data struct {
 
 type DataRespone struct {
 	Data Data `json:"data"`
+}
+
+// IconComponent type
+type IconComponentCustom struct {
+	Type        linebot.FlexComponentType
+	URL         string
+	Margin      linebot.FlexComponentMarginType
+	Size        linebot.FlexIconSizeType
+	AspectRatio linebot.FlexIconAspectRatioType
+	OffsetStart string
+	OffsetEnd   string
+}
+
+// MarshalJSON method of IconComponent
+func (c *IconComponentCustom) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&struct {
+		Type        linebot.FlexComponentType       `json:"type"`
+		URL         string                          `json:"url"`
+		Margin      linebot.FlexComponentMarginType `json:"margin,omitempty"`
+		Size        linebot.FlexIconSizeType        `json:"size,omitempty"`
+		AspectRatio linebot.FlexIconAspectRatioType `json:"aspectRatio,omitempty"`
+		OffsetStart string                          `json:"offsetStart,omitempty"`
+		OffsetEnd   string                          `json:"offsetEnd,omitempty"`
+	}{
+		Type:        linebot.FlexComponentTypeIcon,
+		URL:         c.URL,
+		Margin:      c.Margin,
+		Size:        c.Size,
+		AspectRatio: c.AspectRatio,
+		OffsetStart: c.OffsetStart,
+		OffsetEnd:   c.OffsetEnd,
+	})
 }
