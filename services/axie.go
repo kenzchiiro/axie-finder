@@ -439,7 +439,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	spacerGroup := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
-		Layout:   linebot.FlexBoxLayoutTypeBaseline,
+		Layout:   linebot.FlexBoxLayoutTypeVertical,
 		Contents: spacerContents,
 	}
 
