@@ -382,27 +382,27 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType1to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
 	}
-	partEars := models.IconComponent{
-		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeMd,
-		AspectRatio: linebot.FlexIconAspectRatioType1to1,
-		URL:         FindPartAxieIcon(&axieData.Parts[1]),
-		OffsetEnd:   "1px",
-	}
-	partBack := models.IconComponent{
-		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeMd,
-		AspectRatio: linebot.FlexIconAspectRatioType1to1,
-		URL:         FindPartAxieIcon(&axieData.Parts[2]),
-		OffsetEnd:   "1px",
-	}
-	partMouth := models.IconComponent{
-		Type:        linebot.FlexComponentTypeIcon,
-		Size:        linebot.FlexIconSizeTypeMd,
-		AspectRatio: linebot.FlexIconAspectRatioType1to1,
-		URL:         FindPartAxieIcon(&axieData.Parts[3]),
-		OffsetEnd:   "1px",
-	}
+	// partEars := models.IconComponent{
+	// 	Type:        linebot.FlexComponentTypeIcon,
+	// 	Size:        linebot.FlexIconSizeTypeMd,
+	// 	AspectRatio: linebot.FlexIconAspectRatioType1to1,
+	// 	URL:         FindPartAxieIcon(&axieData.Parts[1]),
+	// 	OffsetEnd:   "1px",
+	// }
+	// partBack := models.IconComponent{
+	// 	Type:        linebot.FlexComponentTypeIcon,
+	// 	Size:        linebot.FlexIconSizeTypeMd,
+	// 	AspectRatio: linebot.FlexIconAspectRatioType1to1,
+	// 	URL:         FindPartAxieIcon(&axieData.Parts[2]),
+	// 	OffsetEnd:   "1px",
+	// }
+	// partMouth := models.IconComponent{
+	// 	Type:        linebot.FlexComponentTypeIcon,
+	// 	Size:        linebot.FlexIconSizeTypeMd,
+	// 	AspectRatio: linebot.FlexIconAspectRatioType1to1,
+	// 	URL:         FindPartAxieIcon(&axieData.Parts[3]),
+	// 	OffsetEnd:   "1px",
+	// }
 	partHorn := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeMd,
@@ -420,9 +420,9 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 
 	// partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
 	partContentsBaseline = append(partContentsBaseline, &partEyes)
-	partContentsBaseline = append(partContentsBaseline, &partEars)
-	partContentsBaseline = append(partContentsBaseline, &partBack)
-	partContentsBaseline = append(partContentsBaseline, &partMouth)
+	// partContentsBaseline = append(partContentsBaseline, &partEars)
+	// partContentsBaseline = append(partContentsBaseline, &partBack)
+	// partContentsBaseline = append(partContentsBaseline, &partMouth)
 	partContentsBaseline = append(partContentsBaseline, &partHorn)
 	partContentsBaseline = append(partContentsBaseline, &partTail)
 	// partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
