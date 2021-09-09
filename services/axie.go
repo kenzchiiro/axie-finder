@@ -415,7 +415,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		OffsetEnd:   "12px",
 	}
 
-	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
+	// partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
 	partContentsBaseline = append(partContentsBaseline, &partEyes)
 	// partContentsBaseline = append(partContentsBaseline, &partEars)
 	partContentsBaseline = append(partContentsBaseline, &partBack)
