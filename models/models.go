@@ -119,7 +119,6 @@ type IconComponent struct {
 	Margin      linebot.FlexComponentMarginType
 	Size        linebot.FlexIconSizeType
 	AspectRatio linebot.FlexIconAspectRatioType
-	OffsetStart string
 	OffsetEnd   string
 }
 
@@ -139,7 +138,6 @@ func (c *IconComponent) MarshalJSON() ([]byte, error) {
 		Margin:      c.Margin,
 		Size:        c.Size,
 		AspectRatio: c.AspectRatio,
-		OffsetStart: c.OffsetStart,
 		OffsetEnd:   c.OffsetEnd,
 	})
 }
