@@ -130,7 +130,6 @@ func (c *IconComponent) MarshalJSON() ([]byte, error) {
 		Margin      linebot.FlexComponentMarginType `json:"margin,omitempty"`
 		Size        linebot.FlexIconSizeType        `json:"size,omitempty"`
 		AspectRatio linebot.FlexIconAspectRatioType `json:"aspectRatio,omitempty"`
-		OffsetStart string                          `json:"offsetStart,omitempty"`
 		OffsetEnd   string                          `json:"offsetEnd,omitempty"`
 	}{
 		Type:        linebot.FlexComponentTypeIcon,
