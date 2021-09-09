@@ -730,7 +730,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Header:    &titleBoxGroup,
 		Type:      linebot.FlexContainerTypeBubble,
 		Direction: linebot.FlexBubbleDirectionTypeLTR,
-		Size:      linebot.FlexBubbleSizeTypeKilo,
+		Size:      linebot.FlexBubbleSizeTypeMicro,
 		Hero:      &hero,
 		Body:      &body,
 		Footer:    &footer,
