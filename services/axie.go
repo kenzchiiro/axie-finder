@@ -393,26 +393,26 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[2]),
-		OffsetEnd:   "12px",
+		OffsetEnd:   "24px",
 	}
 	partMouth := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[3]),
-		OffsetEnd:   "12px",
+		OffsetEnd:   "36px",
 	}
 	partHorn := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[4]),
-		OffsetEnd:   "12px",
+		OffsetEnd:   "48px",
 	}
 	partTail := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
-		OffsetEnd:   "12px",
+		OffsetEnd:   "60px",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
