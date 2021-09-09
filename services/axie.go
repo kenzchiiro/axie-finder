@@ -433,21 +433,21 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	}
 
 	// spacer
-	// var spacerContents []linebot.FlexComponent
-	// spacerContents = append(spacerContents, &linebot.SpacerComponent{})
+	var spacerContents []linebot.FlexComponent
+	spacerContents = append(spacerContents, &partGroup)
 	// spacerContents = append(spacerContents, &linebot.SeparatorComponent{})
 
-	// spacerGroup := linebot.BoxComponent{
-	// 	Type:     linebot.FlexComponentTypeBox,
-	// 	Layout:   linebot.FlexBoxLayoutTypeBaseline,
-	// 	Contents: spacerContents,
-	// }
+	spacerGroup := linebot.BoxComponent{
+		Type:     linebot.FlexComponentTypeBox,
+		Layout:   linebot.FlexBoxLayoutTypeBaseline,
+		Contents: spacerContents,
+	}
 
 	// end part
 
 	var bodyContents []linebot.FlexComponent
 
-	bodyContents = append(bodyContents, &partGroup)
+	bodyContents = append(bodyContents, &spacerGroup)
 	// bodyContents = append(bodyContents, &spacerGroup)
 
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
