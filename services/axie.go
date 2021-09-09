@@ -424,6 +424,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	partContentsBaseline = append(partContentsBaseline, &partHorn)
 	partContentsBaseline = append(partContentsBaseline, &partTail)
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
+	partContentsBaseline = append(partContentsBaseline, &linebot.SpacerComponent{})
 
 	partGroup := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
@@ -436,7 +437,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	var bodyContents []linebot.FlexComponent
 
 	bodyContents = append(bodyContents, &partGroup)
-	bodyContents = append(bodyContents, &linebot.SpacerComponent{})
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
 
 	//HP
@@ -638,7 +638,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	priceContentsBaseline = append(priceContentsBaseline, &statIconETH)
 	priceContentsBaseline = append(priceContentsBaseline, &priceValue)
 	priceContentsBaseline = append(priceContentsBaseline, &priceText)
-	priceContentsBaseline = append(priceContentsBaseline, &linebot.SpacerComponent{})
 
 	priceBaseline := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
