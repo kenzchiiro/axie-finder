@@ -380,7 +380,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
-		OffsetStart: "12px",
+		OffsetStart: "24px",
 	}
 	partEars := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
@@ -413,7 +413,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
-		OffsetEnd:   "0px",
+		OffsetEnd:   "60px",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
@@ -687,8 +687,6 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Layout:   linebot.FlexBoxLayoutTypeBaseline,
 		Contents: priceContentsBaselineUSD,
 	}
-
-	priceContentsUSD = append(priceContentsUSD, &linebot.SpacerComponent{})
 	priceContentsUSD = append(priceContentsUSD, &priceBaselineUSD)
 
 	bodyBoxPriceUSD := linebot.BoxComponent{
