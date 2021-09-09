@@ -380,40 +380,40 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
-		OffsetStart: "24px",
+		OffsetStart: "0px",
 	}
 	partEars := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[1]),
-		OffsetEnd:   "12px",
+		OffsetEnd:   "15px",
 	}
 	partBack := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[2]),
-		OffsetEnd:   "24px",
+		OffsetEnd:   "30px",
 	}
 	partMouth := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeMd,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[3]),
-		OffsetEnd:   "36px",
+		OffsetEnd:   "45px",
 	}
 	partHorn := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[4]),
-		OffsetEnd:   "48px",
+		OffsetEnd:   "50px",
 	}
 	partTail := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
-		OffsetEnd:   "60px",
+		OffsetEnd:   "75px",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
@@ -667,7 +667,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Text:   "$ " + axieData.Auction.CurrentPriceUSD,
 		Align:  "start",
 		Color:  "#AAAAAA",
-		Size:   linebot.FlexTextSizeTypeXs,
+		Size:   linebot.FlexTextSizeTypeXxs,
 		Margin: linebot.FlexComponentMarginTypeSm,
 	}
 
@@ -676,7 +676,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Text:   "USD",
 		Align:  "end",
 		Color:  "#AAAAAA",
-		Size:   linebot.FlexTextSizeTypeXs,
+		Size:   linebot.FlexTextSizeTypeXxs,
 		Margin: linebot.FlexComponentMarginTypeSm,
 	}
 	priceContentsBaselineUSD = append(priceContentsBaselineUSD, &priceValueUSD)
