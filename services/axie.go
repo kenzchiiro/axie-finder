@@ -382,48 +382,48 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
 	}
-	// partEars := models.IconComponent{
-	// 	Type:        linebot.FlexComponentTypeIcon,
-	// 	Size:        linebot.FlexIconSizeTypeLg,
-	// 	AspectRatio: linebot.FlexIconAspectRatioType2to1,
-	// 	URL:         FindPartAxieIcon(&axieData.Parts[1]),
-	// 	OffsetEnd:   "10px",
-	// }
-	// partBack := linebot.IconComponent{
-	// 	Type:        linebot.FlexComponentTypeIcon,
-	// 	Size:        linebot.FlexIconSizeTypeLg,
-	// 	AspectRatio: linebot.FlexIconAspectRatioType2to1,
-	// 	URL:         FindPartAxieIcon(&axieData.Parts[2]),
-	// 	OffsetEnd:   "10px",
-	// }
-	// partMouth := linebot.IconComponent{
-	// 	Type:        linebot.FlexComponentTypeIcon,
-	// 	Size:        linebot.FlexIconSizeTypeLg,
-	// 	AspectRatio: linebot.FlexIconAspectRatioType2to1,
-	// 	URL:         FindPartAxieIcon(&axieData.Parts[3]),
-	// 	OffsetEnd:   "10px",
-	// }
-	// partHorn := models.IconComponent{
-	// 	Type:        linebot.FlexComponentTypeIcon,
-	// 	Size:        linebot.FlexIconSizeTypeLg,
-	// 	AspectRatio: linebot.FlexIconAspectRatioType2to1,
-	// 	URL:         FindPartAxieIcon(&axieData.Parts[4]),
-	// 	OffsetEnd:   "10px",
-	// }
+	partEars := models.IconComponent{
+		Type:        linebot.FlexComponentTypeIcon,
+		Size:        linebot.FlexIconSizeTypeLg,
+		AspectRatio: linebot.FlexIconAspectRatioType2to1,
+		URL:         FindPartAxieIcon(&axieData.Parts[1]),
+		OffsetEnd:   "15px",
+	}
+	partBack := models.IconComponent{
+		Type:        linebot.FlexComponentTypeIcon,
+		Size:        linebot.FlexIconSizeTypeLg,
+		AspectRatio: linebot.FlexIconAspectRatioType2to1,
+		URL:         FindPartAxieIcon(&axieData.Parts[2]),
+		OffsetEnd:   "15px",
+	}
+	partMouth := models.IconComponent{
+		Type:        linebot.FlexComponentTypeIcon,
+		Size:        linebot.FlexIconSizeTypeLg,
+		AspectRatio: linebot.FlexIconAspectRatioType2to1,
+		URL:         FindPartAxieIcon(&axieData.Parts[3]),
+		OffsetEnd:   "15px",
+	}
+	partHorn := models.IconComponent{
+		Type:        linebot.FlexComponentTypeIcon,
+		Size:        linebot.FlexIconSizeTypeLg,
+		AspectRatio: linebot.FlexIconAspectRatioType2to1,
+		URL:         FindPartAxieIcon(&axieData.Parts[4]),
+		OffsetEnd:   "15px",
+	}
 	partTail := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		Size:        linebot.FlexIconSizeTypeLg,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
-		OffsetEnd:   "10px",
+		OffsetEnd:   "15px",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
 	partContentsBaseline = append(partContentsBaseline, &partEyes)
-	// partContentsBaseline = append(partContentsBaseline, &partEars)
-	// partContentsBaseline = append(partContentsBaseline, &partBack)
-	// partContentsBaseline = append(partContentsBaseline, &partMouth)
-	// partContentsBaseline = append(partContentsBaseline, &partHorn)
+	partContentsBaseline = append(partContentsBaseline, &partEars)
+	partContentsBaseline = append(partContentsBaseline, &partBack)
+	partContentsBaseline = append(partContentsBaseline, &partMouth)
+	partContentsBaseline = append(partContentsBaseline, &partHorn)
 	partContentsBaseline = append(partContentsBaseline, &partTail)
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
 
