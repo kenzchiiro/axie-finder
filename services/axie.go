@@ -436,6 +436,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 	var bodyContents []linebot.FlexComponent
 
 	bodyContents = append(bodyContents, &partGroup)
+	bodyContents = append(bodyContents, &linebot.SpacerComponent{})
 	bodyContents = append(bodyContents, &linebot.SeparatorComponent{})
 
 	//HP
