@@ -381,7 +381,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[0]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 	partEars := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
@@ -389,7 +389,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[1]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 	partBack := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
@@ -397,7 +397,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[2]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 	partMouth := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
@@ -405,21 +405,21 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[3]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 	partHorn := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[4]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 	partTail := models.IconComponent{
 		Type:        linebot.FlexComponentTypeIcon,
 		AspectRatio: linebot.FlexIconAspectRatioType2to1,
 		URL:         FindPartAxieIcon(&axieData.Parts[5]),
 		OffsetStart: "0px",
-		OffsetEnd:   "15",
+		OffsetEnd:   "15px",
 	}
 
 	partContentsBaseline = append(partContentsBaseline, &linebot.FillerComponent{})
