@@ -645,6 +645,7 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Contents: priceContentsBaseline,
 	}
 
+	priceContents = append(priceContents, &linebot.SpacerComponent{})
 	priceContents = append(priceContents, &priceBaseline)
 
 	bodyBoxPrice := linebot.BoxComponent{
