@@ -358,8 +358,18 @@ func SetAxieFlexMessage(axieData *models.Results) (bubble *linebot.BubbleContain
 		Color:  "#AAAAAA",
 		Size:   linebot.FlexTextSizeTypeXxs,
 	}
+	titleBreedCount := linebot.TextComponent{
+		Type:   linebot.FlexComponentTypeText,
+		Text:   strconv.Itoa(axieData.BreedCount) + "/7",
+		Weight: "bold",
+		Align:  "end",
+		Color:  "#AAAAAA",
+		Size:   linebot.FlexTextSizeTypeXxs,
+	}
 
 	titleContentsID = append(titleContentsID, &titleTextID)
+	titleContentsID = append(titleContentsID, &titleBreedCount)
+
 	titleBoxID := linebot.BoxComponent{
 		Type:     linebot.FlexComponentTypeBox,
 		Layout:   linebot.FlexBoxLayoutTypeBaseline,
